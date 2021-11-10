@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="renderer" content="webkit">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>简易chart_map</title>
+
+<link href="https://lib.baomitu.com/normalize/latest/normalize.min.css" rel="stylesheet">
+
+<style>
+	/* css style */
+	body {
+		padding: 0 10px 10px 10px;
+	}
+
+	.zchart {
+		max-width: 1000px;
+		margin:10px auto;
+		height: 80vh;
+		border:solid 1px #ddd;
+		display: block;
+	}
+</style>
+
+<script src="https://lib.baomitu.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://lib.baomitu.com/color-js/1.0/color.js"></script>
+<script src="https://lib.baomitu.com/tween.js/2/Tween.min.js"></script>
+
+<script src="../js/ztool.js"></script>
+<script src="../js/zdraw_base.js"></script>
+<script src="../js/zdraw.js"></script>
+<script src="../js/zchart.js"></script>
+</head>
+<body>
+<!-- 内容 -->
+
+<h1 style="text-align: center;">geojson 地图</h1>
+<div style="text-align: center;">
+	geojson数据来源：
+	<a target="_blank" href="http://datav.aliyun.com/tools/atlas/index.html">阿里VDATA</a>
+</div>
+<canvas class="zchart">
+{
+	"type":"map",
+	"geojson":"map/100000.json"
+}
+</canvas>
+<canvas class="zchart">
+{
+	"type":"map",
+	"center":[104.113164, 37.570667],
+	"geojson":"map/100000_full.json",
+	"list":[
+		{"name":"陕西省", "color":"#f66", "tooltip":"感染人数：100人"},
+		{"name":"甘肃省", "color":"#f00|#0f0|90", "tooltip":"感染人数：33人"},
+		{"name":"青海省", "color":"#666", "tooltip":["青海省", "感染人数：33人"]},
+		{"name":"广东省", "color":"#0f0"}
+	]
+}
+</canvas>
+<canvas class="zchart">
+{
+	"type":"map",
+	"zoom":80,
+	"geojson":"map/610000.json"
+}
+</canvas>
+<canvas class="zchart">
+{
+	"type":"map",
+	"geojson":"map/610000_full.json",
+	"hover_border_color":"#000",
+	"point_color":""
+}
+</canvas>
+<canvas class="zchart">
+{
+	"type":"map",
+	"geojson":"map/610100_full.json",
+	"name_color":""
+}
+</canvas>
+<canvas class="zchart">
+{
+	"type":"map_tile",
+	"center":[24.9758968,60.2420404],
+	"zoom":16,
+	"gps_json":"./map/gps_list.json"
+}
+</canvas>
+<canvas class="zchart">
+{
+	"type":"map_tile",
+	"tile_url":"https://rt0.map.gtimg.com/tile?z={0}&x={1}&y={2}&type=vector&styleid=0",
+	"y_flip":true
+}
+</canvas>
+<canvas class="zchart">
+{
+	"type":"map_tile",
+	"tile_url":"http://webst04.is.autonavi.com/appmaptile?style=6&x={1}&y={2}&z={0}"
+}
+</canvas>
+
+<script>
+
+$(function(){
+	// JS
+	ZChart.init();
+});
+
+</script>
+
+</body>
+</html>
